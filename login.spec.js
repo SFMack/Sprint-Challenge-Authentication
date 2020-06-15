@@ -14,6 +14,13 @@ describe('server.js', () => {
 
             expect(response.status).toEqual(expected);
         })
-
     })
+
+    describe('index route', () => {
+        it('should return API is running', () => {
+            return request(server).get('/').expect(200).then(res => expect(res.body.apiStatus).toBe('API is running'))
+        })
+    })
+
+
 })
